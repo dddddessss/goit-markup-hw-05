@@ -5,19 +5,17 @@
 
   --succes: rgba(49, 208, 170, 1);
   --text: rgba(67, 68, 85, 1);
-  --subtle-text:rgba(142, 143, 153, 1);
- 
-  --accent:rgba(231, 233, 252, 1);
+  --subtle-text: rgba(142, 143, 153, 1);
+
+  --accent: rgba(231, 233, 252, 1);
   --light: rgba(244, 244, 253, 1);
 
-  --modal-overlay:rgba(46, 47, 66, 0.4);
+  --modal-overlay: rgba(46, 47, 66, 0.4);
 
   --hero-background: rgba(46, 47, 66, 0.7);
 
   --button-active-text: rgba(255, 255, 255, 1);
   --body-back: #ffffff;
-
-  
 }
 
 body {
@@ -50,8 +48,6 @@ button {
   margin: 0;
   padding: 0;
 }
-
-
 
 .unline {
   text-decoration: none;
@@ -103,6 +99,7 @@ button {
 }
 
 .page-header {
+  position: static;
   border-bottom: 1px solid var(--light);
 }
 
@@ -115,7 +112,8 @@ button {
   background-image: linear-gradient(
       to right,
       rgba(46, 47, 66, 0.7),
-      rgba(46, 47, 66, 0.7)  ),
+      rgba(46, 47, 66, 0.7)
+    ),
     url(../images/people-office\ 1.jpg);
 
   background-repeat: no-repeat;
@@ -129,7 +127,6 @@ button {
 
 .nav {
   display: flex;
-
 }
 
 .nav-logo {
@@ -227,12 +224,85 @@ button {
   line-height: 1.07;
   text-align: center;
 }
-.section-features {
+
+.backdrop {
+  position: fixed;
+  top: 0;
+
+  width: 1440px;
+  height: 100%;
+
   
+  background-color: rgba(46, 47, 66, 0.4);
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: collapse;
+  background-color: var(--pressed-state);
+  
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 408px;
+  height: 576px;
+
+  /* opacity: .7; */
+
+  background-color: var(--button-active-text);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+
+
+}
+
+.modal-close-button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  margin-left: 360px;
+  
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--light);
+  cursor: pointer;
+
+  
+
+}
+
+.modal-close-icon {
+  display: block;
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus,
+.modal-close-icon {
+  background-color: var(--pressed-state);
+  fill: var(--body-back);
+}
+
+.section-features {
   padding-top: 120px;
   padding-bottom: 60px;
-
-
 }
 
 .feat {
@@ -244,7 +314,6 @@ button {
   width: 264px;
 }
 
-
 .features-button {
   background-color: var(--light);
   width: 264px;
@@ -252,13 +321,10 @@ button {
   border-radius: 4px;
   margin-bottom: 8px;
 
-  
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-
 
 .iconicon {
   display: block;
@@ -268,9 +334,6 @@ button {
   margin-left: auto;
   margin-right: auto;
 }
-/* .icon-strategy::before {
-background-image: url(../images/icons/antenna.svg);
-} */
 
 .section-features .item + .item {
   margin-left: 24px;
@@ -281,7 +344,6 @@ background-image: url(../images/icons/antenna.svg);
   height: 24px;
   margin: 0;
 
-
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
@@ -291,13 +353,11 @@ background-image: url(../images/icons/antenna.svg);
   width: 264px;
   height: 72px;
   margin-top: 8px;
-  
+
   line-height: 1.5;
 }
 
-
 .wawd {
-
   padding-top: 60px;
   padding-bottom: 120px;
 }
@@ -313,7 +373,6 @@ background-image: url(../images/icons/antenna.svg);
 
 .wawd-list {
   display: flex;
-  
 }
 
 .wawd-list .item + .item {
@@ -338,8 +397,6 @@ background-image: url(../images/icons/antenna.svg);
 
 .team-list {
   display: flex;
-
-
 }
 .team-list .item {
   margin: 0;
@@ -385,7 +442,7 @@ background-image: url(../images/icons/antenna.svg);
   display: flex;
   align-items: center;
   justify-content: center;
- 
+
   border-radius: 50%;
   background-color: var(--primary-brand);
   width: 40px;
@@ -394,15 +451,11 @@ background-image: url(../images/icons/antenna.svg);
 .icons-button:hover,
 .icons-button:focus {
   background-color: var(--pressed-state);
-
 }
 
 .icon-team {
-  fill:var(--light);
+  fill: var(--light);
 }
-
-
-
 
 /* <!-- <<<<<<<<<<<<<<<<<CUSTOMERS>>>>>>>>>>> --> */
 .section-customers {
@@ -412,7 +465,6 @@ background-image: url(../images/icons/antenna.svg);
 }
 
 .header-customers {
-
   margin: 0;
   margin-bottom: 72px;
   font-size: 36px;
@@ -437,21 +489,17 @@ background-image: url(../images/icons/antenna.svg);
   height: 88px;
 }
 
-.customer-button:is(:hover,:focus) {
+.customer-button:is(:hover, :focus) {
   border: 1px solid var(--pressed-state);
-
 }
 
-.customer-button:is(:hover,:focus) .customer-icon {
+.customer-button:is(:hover, :focus) .customer-icon {
   fill: var(--pressed-state);
-
-
 }
 
 .customer-icon {
   fill: var(--subtle-text);
 }
-
 
 /* <<<<<<<<<<<<<<<<<foooter>>>>>>>>>>>>>> */
 
@@ -476,7 +524,6 @@ footer {
 }
 
 .social {
-  
   margin-bottom: 16px;
   color: var(--body-back);
 }
@@ -487,7 +534,7 @@ footer {
 
 .social-list {
   display: flex;
-  
+
   gap: 16px;
 }
 
@@ -503,14 +550,14 @@ footer {
   border-radius: 50%;
 }
 
-.social-button:is(:hover,:focus){
+.social-button:is(:hover, :focus) {
   background-color: var(--succes);
 }
 
 .social-icon {
-  fill:var(--light);
+  fill: var(--light);
 }
-
+/* <<<<<<<<<<<<<<<<<<<<<<PROTOFOLIO >>>>>>>>>>>>>>>>>>>*/
 .filter {
   padding-top: 96px;
   padding-bottom: 120px;
@@ -534,12 +581,12 @@ footer {
   row-gap: 48px;
 }
 
-.cards .item {
 
+
+.cards .item {
   width: 360px;
   background: var(--body-back);
 }
-
 
 .textcard {
   background-color: var(--body-back);
@@ -551,15 +598,46 @@ footer {
   padding-bottom: 32px;
 }
 
-.unl {
-  display: inline-block; 
-  text-decoration: none;
-}
-.unl:is(:hover, :focus) {
 
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
-  
+.flow {
+
+  position: absolute;
+  display: block;
+  padding: 40px 32px 164px 32px;
+
+  background-color: var(--primary-brand);
+  color: var(--light);
+  width: 360px;
+  height: 300px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+
+  transition: background-color 250ms;
+  transition: transform 100ms ;
+
+
 }
+
+.unl {
+  display: block;
+  text-decoration: none; 
+}
+
+
+
+
+
+.unl:is(:hover, :focus) {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+
+
+
+
 
 /* .site-nav .unline.current {
 color: deeppink;
