@@ -81,6 +81,7 @@ button {
 }
 
 .container {
+  
   width: 1158px;
   padding: 0 15px;
   margin-left: auto;
@@ -98,10 +99,7 @@ button {
   margin-right: auto;
 }
 
-.page-header {
-  position: static;
-  border-bottom: 1px solid var(--light);
-}
+
 
 .overlay {
   max-width: 1440px;
@@ -125,11 +123,27 @@ button {
 
 /* ________________---------MAIN--------______________ */
 
+/* .fixed{
+  position: relative;
+} */
+
+.page-header {
+  position:absolute;
+/* top: 0;
+left: 0; */
+  width: 100%;
+  border-bottom: 1px solid var(--light);
+  background-color: var(--button-active-text);
+}
+
+
 .nav {
   display: flex;
 }
 
 .nav-logo {
+
+  
   display: flex;
   align-items: center;
   min-height: 72px;
@@ -156,11 +170,38 @@ button {
   margin-left: 76px;
 }
 .site-nav-listed {
-  display: inline-block;
+  position: relative;
 
   font-weight: 500;
   line-height: 1.5;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.site-nav-listed:is(:hover,:focus) {
+
+  color: var(--pressed-state);
+
+}
+
+  
+.site-nav-listed.active {
+  color: var(--pressed-state);
+}
+
+.site-nav-listed.active::after { content: '';
+position: absolute;
+bottom: -24px;
+display: block;
+
+width: 100%;
+height: 4px;
+border-radius: 2px;
+
+background-color: var(--pressed-state);
+
+
+} 
 
 .address {
   margin-left: auto;
@@ -173,6 +214,14 @@ button {
 
   font-style: normal;
   line-height: 1.5;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.contacts:is(:hover, :focus){
+  color: var(--pressed-state);
+
+
 }
 
 .site-nav .item + .item {
@@ -205,6 +254,8 @@ button {
   font-size: 16px;
   line-height: 1.5;
   text-align: center;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-hero:hover,
@@ -226,7 +277,7 @@ button {
 }
 
 .backdrop {
-  position: fixed;
+  position: absolute;
   top: 0;
 
   width: 1440px;
@@ -235,16 +286,16 @@ button {
   
   background-color: rgba(46, 47, 66, 0.4);
 
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: linear;
+  transition: opacity 250ms  cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms  cubic-bezier(0.4, 0, 0.2, 1)
+
+
 }
 
 .backdrop.is-hidden {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  visibility: collapse;
-  background-color: var(--pressed-state);
+  
   
 }
 
@@ -264,19 +315,24 @@ button {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
+  transition: opacity 250ms  cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms  cubic-bezier(0.4, 0, 0.2, 1)
 
+}
 
+.modal.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  
 }
 
 .modal-close-button {
   position: absolute;
+  top: 24px;
+  right: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 24px;
-  margin-left: 360px;
-  
-
+ 
   width: 24px;
   height: 24px;
 
@@ -285,8 +341,8 @@ button {
   background-color: var(--light);
   cursor: pointer;
 
-  
-
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-icon {
@@ -447,6 +503,7 @@ button {
   background-color: var(--primary-brand);
   width: 40px;
   height: 40px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icons-button:hover,
 .icons-button:focus {
@@ -487,19 +544,26 @@ button {
   border-radius: 4px;
   width: 168px;
   height: 88px;
+ 
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+
+}
+
+.customer-icon {
+  fill: var(--subtle-text);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer-button:is(:hover, :focus) {
-  border: 1px solid var(--pressed-state);
+  border-color: 1px solid var(--pressed-state);
 }
 
 .customer-button:is(:hover, :focus) .customer-icon {
   fill: var(--pressed-state);
 }
 
-.customer-icon {
-  fill: var(--subtle-text);
-}
+
 
 /* <<<<<<<<<<<<<<<<<foooter>>>>>>>>>>>>>> */
 
@@ -548,6 +612,8 @@ footer {
   background: rgba(255, 255, 255, 0.1);
 
   border-radius: 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-button:is(:hover, :focus) {
@@ -558,7 +624,12 @@ footer {
   fill: var(--light);
 }
 /* <<<<<<<<<<<<<<<<<<<<<<PROTOFOLIO >>>>>>>>>>>>>>>>>>>*/
+
+.container.portfolio-filter {
+  position: relative;
+}
 .filter {
+
   padding-top: 96px;
   padding-bottom: 120px;
 }
@@ -573,6 +644,7 @@ footer {
 }
 
 .cards {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   margin: 0;
@@ -584,9 +656,14 @@ footer {
 
 
 .cards .item {
+  
   width: 360px;
   background: var(--body-back);
 }
+
+/* .item:is(:hover, :focus) .flowtext {
+
+} */
 
 .textcard {
   background-color: var(--body-back);
@@ -599,34 +676,46 @@ footer {
 }
 
 
-.flow {
+.image-flow {
+position: relative;
+overflow: hidden;
 
-  position: absolute;
-  display: block;
+}
+
+.image-flow:is(:hover, :focus) .flowtext {
+  transform: translate(0, 0);
+
+}
+
+.flowtext {
+
+  position:absolute;
+  left: 0;
+  top: 0;
+  
   padding: 40px 32px 164px 32px;
 
   background-color: var(--primary-brand);
   color: var(--light);
   width: 360px;
-  height: 300px;
+  height: 100%;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
-
-  transition: background-color 250ms;
-  transition: transform 100ms ;
-
+  
+  transform: translate( 0, 100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
 .unl {
+ 
   display: block;
   text-decoration: none; 
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);;
+
 }
-
-
-
 
 
 .unl:is(:hover, :focus) {
@@ -635,13 +724,6 @@ footer {
 }
 
 
-
-
-
-
-/* .site-nav .unline.current {
-color: deeppink;
-}  */
 
 /* ________________---------MAIN--------______________ */
 
@@ -663,6 +745,9 @@ color: deeppink;
   line-height: 1.5;
   letter-spacing: 0.04em;
   text-align: center;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 .button.secondary:hover,
 .button.secondary:focus {
